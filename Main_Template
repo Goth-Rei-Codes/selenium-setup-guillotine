@@ -1,0 +1,29 @@
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Main {
+
+    private ChromeDriver driver;
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "CHROMEDRIVER_PATH");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+    }
+
+    @After
+    public void close() throws InterruptedException{
+        Thread.sleep(5000);
+        driver.quit();
+    }
+
+    @Test
+    public void test(){
+        driver.get("https://www.reddit.com/");
+    }
+}
