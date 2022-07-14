@@ -12,10 +12,59 @@ I usually work with Java-based Selenium
 ### So what can i do to use Selenium?
 There are few simple steps to start using Selenium:
 
-1. Integrate the [Selenium dependecies](https://github.com/Rei-Codes-In-JavaScript/selenium-setup-guillotine-/blob/main/Pom_Dependencies) in the pom.xml file inside your project
+1. Download a ChromeDriver aligned with your current Chrome version. You can download your ChromeDriver [here](https://chromedriver.chromium.org/downloads)
 
-2. Create your Main class, in which you will write all your tests. You can use this [template](https://github.com/Rei-Codes-In-JavaScript/selenium-setup-guillotine-/blob/main/Main_Template) as a base/reference 
+2. Integrate the [Selenium dependecies](https://github.com/Rei-Codes-In-JavaScript/selenium-setup-guillotine-/blob/main/Pom_Dependencies) in the pom.xml file inside your project
+
+```
+ <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>compile</scope>
+        </dependency>
+  </dependencies>
+```
+
+3. Create your Main class, in which you will write all your tests. You can use this [template](https://github.com/Rei-Codes-In-JavaScript/selenium-setup-guillotine-/blob/main/Main_Template) as a base/reference 
   > **WARNING**: remember to change the ChromeDriver path with your ChromeDriver path inside ___System.setProperty("webdriver.chrome.driver", "CHROMEDRIVER_PATH");___
+
+```
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Main {
+
+    private ChromeDriver driver;
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "CHROMEDRIVER_PATH");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+    }
+
+    @After
+    public void close() throws InterruptedException{
+        Thread.sleep(5000);
+        driver.quit();
+    }
+
+    @Test
+    public void test(){
+        driver.get("https://www.reddit.com/");
+    }
+}
+```
 
 ### Why Guillotine?
 I don't know, it sounds dope. Also i love [Guillotine by Pi'erre Bourne](https://www.youtube.com/watch?v=mgras4X0aKU)
