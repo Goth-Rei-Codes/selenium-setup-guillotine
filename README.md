@@ -9,7 +9,7 @@
 
 I usually work with Java-based Selenium
 
-### So what can i do to use Selenium?
+### So what do i have to do in order to use Selenium?
 There are few simple steps to start using Selenium:
 
 1. Download a ChromeDriver aligned with your current Chrome version. You can download your ChromeDriver [here](https://chromedriver.chromium.org/downloads)
