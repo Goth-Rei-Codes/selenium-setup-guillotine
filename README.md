@@ -33,7 +33,6 @@ There are few simple steps to start using Selenium:
 ```
 
 3. Create your Main class, in which you will write all your tests. You can use this [template](https://github.com/Rei-Codes-In-JavaScript/selenium-setup-guillotine-/blob/main/Main_Template) as a base/reference 
-  > **WARNING**: remember to change the ChromeDriver path with your ChromeDriver path inside ___System.setProperty("webdriver.chrome.driver", "CHROMEDRIVER_PATH");___
 
 ```
 import org.junit.After;
@@ -65,6 +64,7 @@ public class Main {
     }
 }
 ```
+ > **WARNING**: remember to change the ChromeDriver path with your ChromeDriver path inside ___System.setProperty("webdriver.chrome.driver", "CHROMEDRIVER_PATH");___
 
 ### Why Guillotine?
 I don't know, it sounds dope. Also i love [Guillotine by Pi'erre Bourne](https://www.youtube.com/watch?v=mgras4X0aKU)
