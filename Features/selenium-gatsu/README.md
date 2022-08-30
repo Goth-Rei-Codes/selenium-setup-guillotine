@@ -19,7 +19,7 @@ Do you feel tired, irritated, annihilated by Jenkins' monotony and heaviness?
 In this repository you will find a Selenium script that conveniently processes the test results of Jenkins builds, and generates files with the differences of the failed tests between one build and another.
 <br><br>
 <p align="center">
-The generated files will include all the tests that are listed in the build A but not in the build B (Left Join) and vice versa (Right Join)
+The generated files will include all the failed tests that are listed in the build A but not in the build B (Left Join) and vice versa (Right Join)
 <br><br>
 <img style="margin-top:90px" src="https://github.com/Rei-Codes-In-JavaScript/selenium-setup-guillotine/blob/main/Resources/Images/Gatsu/build1.png" width="200px">
 <img style="margin-top:90px" src="https://github.com/Rei-Codes-In-JavaScript/selenium-setup-guillotine/blob/main/Resources/Images/Gatsu/build2.png" width="200px">
