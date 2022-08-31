@@ -39,19 +39,19 @@ public class Main {
         driver.get("BUILD1 HTML FILE");
 
         // Build 1 tests scraping
-        List<WebElement> build1Sus = driver.findElements(By.xpath("//a[contains(text(), 'test')]"));
+        List<WebElement> b1 = driver.findElements(By.xpath("//a[contains(text(), 'test')]"));
 
         // Generate Build 1 tests list
-        List<String> build1 = generateBuildTestsList(build1Sus);
+        List<String> build1 = generateBuildTestsList(b1);
 
         // Switch to Build 2 tab
         switchToOtherBuild(1, "BUILD2 HTML FILE");
 
         // Build 2 tests scraping
-        List<WebElement> build2Sus = driver.findElements(By.xpath("//a[contains(text(), 'test')]"));
+        List<WebElement> b2 = driver.findElements(By.xpath("//a[contains(text(), 'test')]"));
 
         // Generate Build 2 tests list
-        List<String> build2 = generateBuildTestsList(build2Sus);
+        List<String> build2 = generateBuildTestsList(b2);
 
         // Find Build 1 new tests
         List<String> build1NewTests = findNewTestsOfBuild(build2, build1);
