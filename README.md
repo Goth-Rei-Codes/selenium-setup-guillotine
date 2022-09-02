@@ -54,13 +54,13 @@ public class Main {
     }
 
     @After
-    public void close() throws InterruptedException{
+    public void close() throws InterruptedException {
         Thread.sleep(5000);
         driver.quit();
     }
 
     @Test
-    public void test(){
+    public void test() {
         driver.get("https://www.reddit.com/");
     }
 }
