@@ -1,22 +1,20 @@
-/**
- * @author Rei-Codes-In-JavaScript
- */
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
+import gatsu.Gatsu;
+
+/**
+ * @author Rei-Codes-In-JavaScript
+ */
 
 public class Main {
 
     ChromeDriver driver;
+
+    String build1 = "BUILD1 PATH";
+    String build2 = "BUILD2 PATH";
 
     @Before
     public void setUp() {
@@ -27,90 +25,47 @@ public class Main {
     }
 
     @After
-    public void close() throws InterruptedException {
-        Thread.sleep(5000);
+    public void close() {
         driver.quit();
     }
 
     @Test
-    public void generate() {
+    public void generateAnalysisNoFailed() {
 
-        // Reach Build 1 page
-        driver.get("BUILD1 HTML FILE");
+        /*
+         * This script generates 3 files:
+         * 1. Build1 unique tests list (build1_unique_tests.txt)
+         * 2. Build2 unique tests list (build2_unique_tests.txt)
+         * 3. Build1 and Build2 common tests list (common_tests.txt)
+         *
+         * REQUIREMENTS: none
+         *
+         */
 
-        // Build 1 tests scraping
-        List<WebElement> b1 = driver.findElements(By.xpath("//a[contains(text(), 'test')]"));
-
-        // Generate Build 1 tests list
-        List<String> build1 = generateBuildTestsList(b1);
-
-        // Switch to Build 2 tab
-        switchToOtherBuild(1, "BUILD2 HTML FILE");
-
-        // Build 2 tests scraping
-        List<WebElement> b2 = driver.findElements(By.xpath("//a[contains(text(), 'test')]"));
-
-        // Generate Build 2 tests list
-        List<String> build2 = generateBuildTestsList(b2);
-
-        // Find Build 1 new tests
-        List<String> build1NewTests = findNewTestsOfBuild(build2, build1);
-
-        // Find Build 2 new tests
-        List<String> build2NewTests = findNewTestsOfBuild(build1, build2);
-
-        // Generate file of Build 1 new tests list
-        generateDeltaFile(build1NewTests, "build1");
-
-        // Generate file of Build 2 new tests list
-        generateDeltaFile(build2NewTests, "build2");
+        Gatsu gatsu = new Gatsu(driver);
+        gatsu.generateAnalysisNoFailedOf(build1, build2);
     }
 
-    public void switchToOtherBuild(int indexOfTab, String buildUrl){
-        ((JavascriptExecutor)driver).executeScript("window.open()");
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(indexOfTab));
-        driver.get(buildUrl);
-    }
+    @Test
+    public void generateAnalysisWithFailed() {
 
-    List<String> generateBuildTestsList(List<WebElement> build){
-        List<String> buildTests = new ArrayList<>();
+        /*
+         * This script generates 4 files:
+         * 1. Build1 unique tests list (build1_unique_tests.txt)
+         * 2. Build2 unique tests list (build2_unique_tests.txt)
+         * 3. Build1 and Build2 common tests list (common_tests.txt)
+         * 4. Build1 and Build2 common FAILED tests (common_failed_tests.txt)
+         *
+         * REQUIREMENTS:
+         * 1. Build1 previous execution
+         * 2. Build1 list of failed tests
+         * 3. The failed list must match the same format of the Jenkins' list]
+         * 4. You can use the real_failed.txt file to paste the list of failed in your Build1 execution, but if you choose to use another file,
+         *    remember to change the file name/path when the gatsu.readfile() method is called
+         *
+         */
 
-        for(int x=1; x<build.size(); x++) {
-            buildTests.add(build.get(x).getText());
-        }
-
-        System.out.println("Number of tests: " + buildTests.size());
-        return buildTests;
-    }
-
-    List<String> findNewTestsOfBuild(List<String> origin, List<String> target) {
-        List<String> targetNewTests = new ArrayList<>(target);
-        targetNewTests.removeAll(origin);
-        return targetNewTests;
-    }
-
-    void generateDeltaFile(List<String> build, String fileName){
-        try {
-            if(build.isEmpty()) {
-                System.err.println("YAY! There are no new tests for " + fileName);
-            } else {
-                FileWriter myWriter = new FileWriter(fileName + ".txt");
-                myWriter.write("Total of new tests: " + build.size() + "\n\n");
-                build.forEach(test -> {
-                    try {
-                        myWriter.write(test + "\n\n");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
-                myWriter.close();
-                System.out.println(fileName + ".txt created");
-            }
-            System.err.println("There are " + build.size() + " new tests");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+        Gatsu gatsu = new Gatsu(driver);
+        gatsu.generateAnalysisWithFailedOf(build1, build2);
     }
 }

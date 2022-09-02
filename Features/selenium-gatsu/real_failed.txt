@@ -1,0 +1,11 @@
+/*
+ * This file should contain the list of failed tests of build 1
+ * There should be no space between a test and another
+ */
+
+ Example:
+
+ Gatsu.test1()
+ Gatsu.test2()
+ Gatsu.test3()
+ Griffith.test34()
