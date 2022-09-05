@@ -52,7 +52,7 @@ Stop crying over yourself, and feel the power of Selenium, join Gatsu and change
 # Updates
 *  2/9/2022
     * Code improvements
-    * It is now possible to choose between 2 type of analysis of builds:
+    * It is now possible to choose between 2 type of builds' analysis:
        ### Analysis with no failed
         The method generateAnalysisNoFailed() generates 3 files:
         * Build1 unique tests list
@@ -61,7 +61,7 @@ Stop crying over yourself, and feel the power of Selenium, join Gatsu and change
         
         <br>
         
-        > **WARNING**: There's no need to execute a single build, this is useful pre-builds execution
+        > **WARNING**: There's no need to execute a single build, this is useful before builds' execution
         
         ### Analysis with failed
         The method generateAnalysisWithFailed() generates 4 files:
@@ -75,5 +75,5 @@ Stop crying over yourself, and feel the power of Selenium, join Gatsu and change
         > **WARNING**: There are some requirements for this: <br>
             * Build1 must have been executed before this analysis <br>
             * A list of all Build1 failed test is required <br>
-            * The list of Build1 failed must be pasted in _real_failed.txt_ file, or change the file path the gatsu.readfile() method calls <br>
+            * The list of Build1 failed must be pasted in _real_failed.txt_ file, or change the file path in the gatsu.readfile() method calls <br>
             This is useful post Build1 execution, or even both builds execution
