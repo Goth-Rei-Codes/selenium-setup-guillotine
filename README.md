@@ -16,7 +16,7 @@ There are few simple steps to start using Selenium:
 
 2. Integrate the [Selenium dependecies](https://github.com/Rei-Codes-In-JavaScript/selenium-setup-guillotine-/blob/main/Pom_Dependencies) in the pom.xml file inside your project
 
-```
+```java
  <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -34,7 +34,7 @@ There are few simple steps to start using Selenium:
 
 3. Create your Main class, in which you will write all your tests. You can use this [template](https://github.com/Rei-Codes-In-JavaScript/selenium-setup-guillotine-/blob/main/Main_Template) as a base/reference 
 
-```
+```java
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -77,3 +77,10 @@ Statistics confirm a 100% decrease in dopamine, serotonin and oxytocin productio
 <img src="https://static.wikia.nocookie.net/60641246-75fe-4ebb-ab7a-e861c95c4895/scale-to-width/755" width="200"/><br>
 Footage of a person who refused to use Selenium lol
 </p>
+
+### Features:
+
+| Feature  | Usage |
+| ------------- | ------------- |
+| [Selenium-Gatsu](https://github.com/Goth-Rei-Codes/selenium-setup-guillotine/tree/main/Features/selenium-gatsu)  | Compares 2 builds on Jenkins and generates a report |
+| [Selenium-Caska](https://github.com/Goth-Rei-Codes/selenium-setup-guillotine/tree/main/Features/selenium-caska)  | Generates mocks for Switf-based tests starting with a test suite on [Qase](https://qase.io/)  |
