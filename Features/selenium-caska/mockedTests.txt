@@ -1,0 +1,11 @@
+  // CSK-CMD001
+  func test_CSKCMD001() {
+    mockServer.requestsHandler = RequestsHandler {
+      $0.addMockedRequests(
+        NetworkRequest(remotePath: "/server/api/authenticate", localPath: "profile.json", status: .ok, serveOnce: true),
+        NetworkRequest(remotePath: "/server/api/updates", localPath: "updates_no_signed.json", status: .ok),
+        NetworkRequest(remotePath: "/server/api/authenticate", localPath: "no_content", status: .internalServerError)
+        )
+    }
+    // Do something
+  }
