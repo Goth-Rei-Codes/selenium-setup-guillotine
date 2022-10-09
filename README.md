@@ -82,5 +82,5 @@ Footage of a person who refused to use Selenium lol
 
 | Feature  | Usage |
 | ------------- | ------------- |
-| [Selenium-Gatsu](https://github.com/Goth-Rei-Codes/selenium-setup-guillotine/tree/main/Features/selenium-gatsu)  | Compares 2 builds on Jenkins and generates a report |
+| [Selenium-Gatsu](https://github.com/Goth-Rei-Codes/selenium-setup-guillotine/tree/main/Features/selenium-gatsu)  | Compares 2 builds on [Jenkins](https://www.jenkins.io/) and generates a report |
 | [Selenium-Caska](https://github.com/Goth-Rei-Codes/selenium-setup-guillotine/tree/main/Features/selenium-caska)  | Generates mocks for Switf-based tests starting with a test suite on [Qase](https://qase.io/)  |
