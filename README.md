@@ -16,7 +16,7 @@ There are few simple steps to start using Selenium:
 
 2. Integrate the [Selenium dependecies](https://github.com/Rei-Codes-In-JavaScript/selenium-setup-guillotine-/blob/main/Pom_Dependencies) in the pom.xml file inside your project
 
-```java
+```xml
  <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
