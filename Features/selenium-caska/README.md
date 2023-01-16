@@ -23,9 +23,9 @@ Caska will generate as outcome a txt file that contains Swift instructions to ex
   func test_CSKCMD001() {
     mockServer.requestsHandler = RequestsHandler {
       $0.addMockedRequests(
-        NetworkRequest(remotePath: "/server/api/authenticate", localPath: "profile.json", status: .ok, serveOnce: true),
+        NetworkRequest(remotePath: "/server/api/authenticate", localPath: "prodifile.json", status: .ok, serveOnce: true),
         NetworkRequest(remotePath: "/server/api/updates", localPath: "updates_no_signed.json", status: .ok),
-        NetworkRequest(remotePath: "/server/api/authenticate", localPath: "no_content", status: .internalServerError)
+        NetworkRequest(remotePath: "/server/api/authenticate", localPath: "authenticate_maid.json", status: .internalServerError)
         )
     }
     // Do something
